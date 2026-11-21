@@ -3,9 +3,40 @@
 
   const DATA = Array.isArray(window.GIFT_MANIFEST) ? window.GIFT_MANIFEST : [];
   const ANIMATION_MS = 7000;
-  const WISH_TEXT = "愿你有树可栖，有梦可追；<br>奔跑时乘风，回头时我们在。";
+  const WISHES = {
+    "万子睿": "愿你有书可读，有山可攀；<br>每一次出发，都抵达欢喜。",
+    "伍思霖": "愿你眼里有光，心中有海；<br>走过的路，都长成辽阔。",
+    "刘为易": "愿你手中有事做，心里有人念；<br>平常日子，也有小小的闪光。",
+    "刘献雍": "愿你所求皆有回响，所行皆有归途；<br>不慌不忙，自有答案。",
+    "刘航": "愿你乘风时尽兴，停泊时安心；<br>远方和归途，都值得期待。",
+    "孙博宇": "愿你把热爱装进行囊，把犹豫留在身后；<br>一路向前，自有天光。",
+    "孙广益": "愿你有足够的耐心等花开，<br>也有足够的勇气去远方。",
+    "张子木": "愿你像树一样安静生长，<br>根扎得深，枝伸得远。",
+    "彭盛飞": "愿你心中有旷野，脚下有坦途；<br>想飞的时候，风刚好来。",
+    "施一晨": "愿你的每个清晨都有期待，<br>每个夜晚都能安心睡去。",
+    "曲厚行": "愿你行过曲折，仍觉得人间值得；<br>走过山海，仍保留温柔。",
+    "李初晗": "愿你如初升的晨光，<br>不急着耀眼，却始终明亮。",
+    "李子舜": "愿你有少年意气，也有从容底气；<br>想做的事，都来得及。",
+    "李延泽": "愿你被岁月温柔以待，<br>也始终有重新出发的勇气。",
+    "李林杰": "愿你在自己的节奏里，<br>长成喜欢的模样。",
+    "毛天承": "愿你有抬头看云的闲情，<br>也有低头赶路的坚定。",
+    "汪义轩": "愿你心里有杆秤，眼里有片天；<br>走得正，也走得远。",
+    "汪家齐": "愿你的日子有烟火，也有星光；<br>身边有热闹，心里有安宁。",
+    "王江楠": "愿你见过江海的辽阔，<br>也珍惜岸边的灯火。",
+    "王泓霖": "愿你逢山有路，遇水有舟；<br>想见的人，都在不远处。",
+    "王泽旭": "愿你如旭日初升，<br>把每一个平凡日子照得滚烫。",
+    "程书宇": "愿你读万卷书，也行万里路；<br>字里行间，皆是坦途。",
+    "胡恩铭": "愿你记得别人的好，也记得自己的珍贵；<br>被世界温柔，也温柔待世界。",
+    "董涵宇": "愿你有涵养天地的胸襟，<br>也有守护小小欢喜的柔软。",
+    "陈庆霄": "愿你抬头有星河，低头有生活；<br>每一步，都走得踏实。",
+    "陈沈楷": "愿你落笔皆从容，落子皆无悔；<br>人生的答卷，写自己喜欢的答案。",
+    "齐晟焯": "愿你光明磊落，也热烈自由；<br>所到之处，皆有回响。",
+  };
+  const wishFor = (name) =>
+    WISHES[name] || "愿你所行皆有光，所遇皆温柔；<br>往后的每一天，都值得期待。";
+  const wishTextFor = (name) => wishFor(name).replace(/<br\s*\/?>/gi, "\n");
   const SHARE_TEXT = (name) =>
-    `${name}，男生节快乐！\n愿你有树可栖，有梦可追；\n奔跑时乘风，回头时我们在。\n—— 未央56班`;
+    `${name}，男生节快乐！\n${wishTextFor(name)}\n—— 未央56班`;
 
   const $ = (id) => document.getElementById(id);
 
@@ -42,8 +73,11 @@
   const skipBtn = $("skipBtn");
   const animTo = $("animTo");
   const animName = $("animName");
+  const animCard = $("animCard");
   const leafField = $("leafField");
   const homeLeaves = $("homeLeaves");
+  const stageStars = $("stageStars");
+  const sparkField = $("sparkField");
 
   const lightbox = $("lightbox");
   const lightboxImg = $("lightboxImg");
@@ -168,6 +202,36 @@
         })
       );
       if (near) leafField.lastElementChild.classList.add("is-near");
+    }
+  }
+
+  function buildStars() {
+    if (!stageStars || stageStars.childElementCount) return;
+    for (let i = 0; i < 42; i += 1) {
+      const star = document.createElement("span");
+      star.className = "star";
+      star.style.setProperty("--x", `${(Math.random() * 100).toFixed(2)}%`);
+      star.style.setProperty("--y", `${(Math.random() * 100).toFixed(2)}%`);
+      star.style.setProperty("--s", `${(1 + Math.random() * 2.6).toFixed(1)}px`);
+      star.style.setProperty("--d", `${(2.4 + Math.random() * 3.6).toFixed(2)}s`);
+      star.style.setProperty("--delay", `${(-Math.random() * 6).toFixed(2)}s`);
+      star.style.setProperty("--o", (0.18 + Math.random() * 0.55).toFixed(2));
+      stageStars.appendChild(star);
+    }
+  }
+
+  function buildSparks() {
+    if (!sparkField || sparkField.childElementCount) return;
+    for (let i = 0; i < 20; i += 1) {
+      const spark = document.createElement("span");
+      spark.className = "spark";
+      spark.style.setProperty("--x", `${(Math.random() * 100).toFixed(2)}%`);
+      spark.style.setProperty("--y", `${(45 + Math.random() * 42).toFixed(2)}%`);
+      spark.style.setProperty("--s", `${(2 + Math.random() * 4).toFixed(1)}px`);
+      spark.style.setProperty("--dur", `${(2.8 + Math.random() * 3.2).toFixed(2)}s`);
+      spark.style.setProperty("--delay", `${(-Math.random() * 4).toFixed(2)}s`);
+      spark.style.setProperty("--dx", `${(Math.random() * 80 - 40).toFixed(0)}px`);
+      sparkField.appendChild(spark);
     }
   }
 
@@ -336,7 +400,7 @@
     cardImage.alt = `${entry.name}的男生节贺图`;
     cardMeta.textContent = `${entry.w} × ${entry.h}`;
     fileMeta.textContent = `PNG 原图 · ${entry.origMB} MB · ${entry.w} × ${entry.h}`;
-    noteText.innerHTML = WISH_TEXT;
+    noteText.innerHTML = wishFor(entry.name);
 
     cardShell.classList.remove("is-loaded");
     cardImage.onload = () => {
@@ -348,6 +412,13 @@
       cardImage.src = entry.thumb;
     };
     cardImage.src = entry.preview;
+    if (animCard) {
+      animCard.onerror = () => {
+        animCard.onerror = null;
+        animCard.src = entry.thumb;
+      };
+      animCard.src = entry.preview;
+    }
     if (cardImage.complete && cardImage.naturalWidth > 0) {
       state.cardLoaded = true;
       cardShell.classList.add("is-loaded");
@@ -695,6 +766,8 @@
   function boot() {
     buildHomeLeaves();
     buildFallingLeaves();
+    buildStars();
+    buildSparks();
 
     if (!DATA.length) {
       openBtn.disabled = true;
