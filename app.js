@@ -503,9 +503,6 @@
       requestAnimationFrame(() => {
         revealTitle.focus({ preventScroll: true });
       });
-      if (byUser) {
-        toast("祝福已经为你留好", 1800);
-      }
     }, delay);
   }
 
