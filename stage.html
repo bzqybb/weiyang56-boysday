@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#150b23">
+  <meta name="color-scheme" content="dark">
+  <meta name="robots" content="noindex, nofollow">
+  <title>现场大屏 · 未央56男生节</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/badge-seal.png" as="image">
+  <link rel="stylesheet" href="stage.css">
+  <script src="assets/vendor/qrcode.min.js" defer></script>
+  <script src="stage.js" defer></script>
+</head>
+<body>
+  <div class="stage-shell">
+    <div class="ambient" aria-hidden="true">
+      <div class="ambient-aurora"></div>
+      <div class="ambient-glow"></div>
+      <div class="ambient-grid"></div>
+      <div class="leaves" id="stageLeaves"></div>
+      <div class="grain"></div>
+    </div>
+
+    <header class="stage-head">
+      <a class="brand-badge" href="index.html" aria-label="打开未央56领取页">
+        <img src="assets/badge-seal.png" alt="" width="192" height="192">
+      </a>
+      <span class="brand-name">未央56</span>
+    </header>
+
+    <main>
+      <section class="intro-panel" id="introPanel">
+        <p class="eyebrow"><span></span>未央56 · 男生节<span></span></p>
+        <h1>有一份祝福<br><em>等你签收</em></h1>
+        <p class="intro-sub">一份只属于你的祝福。</p>
+        <button class="play-btn" id="playBtn" type="button">
+          <span class="play-icon" aria-hidden="true"></span>
+          播放祝福动画
+        </button>
+        <p class="intro-hint">点击后全屏播放 · 约 7 秒</p>
+      </section>
+
+      <section class="show-panel" id="showPanel" hidden aria-label="祝福动画">
+        <div class="stage-halo" aria-hidden="true"></div>
+        <div class="gift">
+          <div class="envelope">
+            <div class="env-letter">
+              <div class="env-stamp" aria-hidden="true">
+                <img src="assets/badge-seal.png" alt="" width="192" height="192">
+              </div>
+              <div class="env-script" aria-hidden="true">
+                <span>未央书院</span>
+                <strong>56</strong>
+                <span>男生节</span>
+              </div>
+            </div>
+            <div class="env-pocket" aria-hidden="true"></div>
+            <div class="env-flap" aria-hidden="true"></div>
+            <div class="env-seal" aria-hidden="true">56</div>
+          </div>
+          <div class="show-wish">
+            <p class="show-to">TO · 未央56班的每一个你</p>
+            <h2>男生节<br><em>快乐！</em></h2>
+          </div>
+        </div>
+        <div class="gold-burst" aria-hidden="true"></div>
+        <button class="skip-btn" id="skipBtn" type="button">直接看二维码</button>
+        <div class="show-progress" aria-hidden="true"><span></span></div>
+      </section>
+
+      <section class="qr-panel" id="qrPanel" hidden aria-labelledby="qrTitle">
+        <div class="qr-copy">
+          <p class="eyebrow"><span></span>你的那一份，已经留好<span></span></p>
+          <h2 id="qrTitle">扫码，领取<br><em>你的专属祝福</em></h2>
+          <p class="qr-sub">扫码打开领取页，输入姓名，拆开专属贺图。<br>也可以直接在浏览器打开下方的网址。</p>
+          <div class="qr-url" id="qrUrl"></div>
+          <div class="qr-actions">
+            <button class="replay-btn" id="replayBtn" type="button">
+              <span aria-hidden="true">↻</span>
+              重播动画
+            </button>
+            <a class="open-link" id="openLink" href="index.html">打开领取页 <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="qr-card">
+          <div class="qr-frame" id="qrCode" aria-label="领取页二维码"></div>
+          <p>微信 / 浏览器扫一扫</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="stage-foot">
+      <span>未央书院 56班</span>
+      <i aria-hidden="true"></i>
+      <span>2026 男生节</span>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+PangMen ZhengDao CuShu (庞门正道粗书体)
+=====================================
+
+This site uses a subset of 庞门正道粗书体 for display headings.
+
+The typeface is published by 庞门正道 (PangMen ZhengDao) as a free-to-use
+Chinese typeface (免费商用，无需授权). The original font file is kept outside
+the deployed site in `gift-site-source/fonts/PangMenZhengDao-CuShu.ttf`.
+
+Subset generated for this page only; font family name in the page is "PangMen".
+If you reuse the font, verify the current license terms with the publisher.
+
+Source mirror used:
+https://github.com/CoolOctopus/XXFont
