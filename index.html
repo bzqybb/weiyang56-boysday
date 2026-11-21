@@ -143,7 +143,7 @@
 
         <div class="reveal-intro">
           <p class="eyebrow">TO · <span id="revealTo"></span></p>
-          <h2 id="revealTitle">你的那一张，<br><em>已经拆开。</em></h2>
+          <h2 id="revealTitle">你的专属海报<br><em>已生成！</em></h2>
         </div>
 
         <figure class="card-figure">
@@ -213,30 +213,42 @@
     </div>
 
     <div class="opening-stage">
+      <div class="stage-stars" id="stageStars" aria-hidden="true"></div>
       <div class="stage-halo" aria-hidden="true"></div>
+      <div class="stage-rings" aria-hidden="true"><i></i><i></i><i></i></div>
 
-      <div class="gift" id="gift">
-        <div class="envelope" id="envelope">
-          <div class="letter" id="letter">
-            <div class="letter-stamp" aria-hidden="true">
-              <img src="assets/badge-seal.png" alt="" width="192" height="192">
-            </div>
-            <div class="letter-script" aria-hidden="true">
-              <span>未央书院</span>
-              <strong>56</strong>
-              <span>男生节</span>
-            </div>
-            <div class="letter-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="gift-scene">
+        <div class="box-aura" aria-hidden="true"></div>
+
+        <div class="gift-box" id="giftBox" aria-hidden="true">
+          <div class="box-body">
+            <span class="box-ribbon-v"></span>
+            <span class="box-ribbon-h"></span>
+            <span class="box-shine"></span>
+            <span class="box-emblem">✦</span>
           </div>
-          <div class="env-pocket" aria-hidden="true"></div>
-          <div class="env-flap" aria-hidden="true"></div>
-          <div class="env-seal" aria-hidden="true"><span>56</span></div>
+          <div class="box-lid">
+            <span class="lid-ribbon"></span>
+            <span class="lid-bow"><i></i><i></i></span>
+          </div>
+          <div class="light-beam"></div>
+          <div class="light-core"></div>
         </div>
+
+        <figure class="poster" id="animPoster">
+          <div class="poster-inner">
+            <img id="animCard" alt="" width="720" height="1080">
+            <span class="poster-fallback" aria-hidden="true">未央56</span>
+            <span class="poster-sheen" aria-hidden="true"></span>
+          </div>
+        </figure>
 
         <div class="wish-reveal" id="wishReveal">
           <p class="wish-to">TO · <span id="animTo"></span></p>
           <h2 id="animWish"><span id="animName"></span>，<br><em>男生节快乐！</em></h2>
         </div>
+
+        <div class="spark-field" id="sparkField" aria-hidden="true"></div>
       </div>
 
       <div class="gold-burst" aria-hidden="true"></div>
