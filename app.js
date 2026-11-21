@@ -239,13 +239,18 @@
   }
 
   input.addEventListener("focus", () => {
-    renderSuggestions();
+    if (!findByInput(input.value)) renderSuggestions();
   });
 
   input.addEventListener("input", () => {
     refreshInputState();
     errorEl.textContent = "";
-    if (!state.composing) renderSuggestions();
+    if (state.composing) return;
+    if (findByInput(input.value)) {
+      closeSuggestions();
+      return;
+    }
+    renderSuggestions();
   });
 
   input.addEventListener("compositionstart", () => {
